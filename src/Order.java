@@ -1,4 +1,5 @@
 class Order {
+    private static int orderCount = 1;
     String orderId;
     Customer customer;
     Product product;
@@ -6,8 +7,8 @@ class Order {
     double totalPrice;
     String status;
 
-    public Order(String orderId, Customer customer, Product product, int quantity) {
-        this.orderId = orderId;
+    public Order(Customer customer, Product product, int quantity) {
+        this.orderId = "ORD" + orderCount++;
         this.customer = customer;
         this.product = product;
         this.quantity = quantity;

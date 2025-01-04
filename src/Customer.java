@@ -20,7 +20,7 @@ class Customer extends User {
 
     public void placeOrder(Product product, int quantity) {
         if (product.getStock() >= quantity) {
-            Order order = new Order("ORD" + (orders.size() + 1), this, product, quantity);
+            Order order = new Order(this, product, quantity);
             orders.add(order);
             product.reduceStock(quantity);
             System.out.println("Order placed: " + order.orderId);
