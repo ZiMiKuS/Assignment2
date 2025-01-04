@@ -3,10 +3,12 @@ import java.util.List;
 
 class Customer extends User {
     List<Order> orders;
+    List<Customer> customers;
     String shippingAddress;
 
     public Customer(int userId, String name, String email, String shippingAddress) {
         super(userId, name, email);
+        this.customers = new ArrayList<>();
         this.orders = new ArrayList<>();
         this.shippingAddress = shippingAddress;
     }
