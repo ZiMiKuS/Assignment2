@@ -15,7 +15,7 @@ class Customer extends User {
     public void displayDetails() {
         System.out.println("Customer Name: " + name);
         System.out.println("Email: " + email);
-        System.out.println("Shipping Address: " + shippingAddress);
+        System.out.println("Shipping Address: " + shippingAddress + '\n');
     }
 
     public void placeOrder(Product product, int quantity) {
@@ -28,10 +28,23 @@ class Customer extends User {
             System.out.println("Not enough stock");
         }
     }
+    public void cancelOrder(String orderId) {
+        Order orderToCancel = null;
+        for (Order order : orders) {
+            if (order.getOrderId().equals(orderId)) {
+                orderToCancel = order;
+                break;
+            }
+        }
 
-    public void cancelOrder(Order order) {
-        order.cancelOrder();
-        orders.remove(order);
-        order.product.increaseStock(order.quantity);
+        if (orderToCancel == null) {
+            System.out.println("Order with ID " + orderId + " not found.");
+            return;
+        }
+
+        orderToCancel.cancelOrder();
+        orderToCancel.getProduct().increaseStock(orderToCancel.getQuantity());
+        System.out.println("Order " + orderId + " has been successfully cancelled.");
     }
+
 }

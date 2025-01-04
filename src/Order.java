@@ -16,6 +16,30 @@ class Order {
         this.status = "Placed";
     }
 
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public void cancelOrder() {
         status = "Cancelled";
     }
@@ -26,6 +50,6 @@ class Order {
         System.out.println("Product: " + product.getName());
         System.out.println("Quantity: " + quantity);
         System.out.println("Total Price: " + totalPrice);
-        System.out.println("Status: " + status);
+        System.out.println("Status: " + status + '\n');
     }
 }

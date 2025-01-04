@@ -45,6 +45,6 @@ class Product {
         System.out.println("Product ID: " + productId);
         System.out.println("Name: " + name);
         System.out.println("Price: " + price);
-        System.out.println("Stock: " + stock);
+        System.out.println("Stock: " + stock + '\n');
     }
 }
